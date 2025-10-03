@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Exec=~/tvstation.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=TVStation
+Comment=Autoplay TV script
