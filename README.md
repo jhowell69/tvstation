@@ -1,6 +1,9 @@
 # tvstation
 TV station with ad support, random episode playback, and support for playing ads between chapters inside of an episode.
 
+You will also need to compile xwinwrap for the overlay 
+https://github.com/mmhobi7/xwinwrap
+
 You can have the program autostart by writing this text to ~/.config/autostart/tvstation.desktop
 
 [Desktop Entry]
@@ -11,3 +14,4 @@ NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Name=TVStation
 Comment=Autoplay TV script
+
