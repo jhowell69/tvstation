@@ -8,15 +8,7 @@ while ! pgrep -x "pcmanfm" > /dev/null; do
         echo "waiting on desktop environment to init..."
 done
 
-sleep 1
-
-# === Exit mpv if active ===
-if (( pgrep -f 'tvstation.sh' | wc -l )) > 1; then
-        echo -e "Duplicate Instance of TVSTATION already running...\nRun stoptv to stop it, then re-run this script."
-        exit 1
-else
-        echo "Starting TVSTATION. STANDBY..."
-fi
+sleep 2
 
 export DISPLAY=:0
 sleep 0.25
