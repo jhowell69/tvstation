@@ -1,5 +1,29 @@
 #!/bin/bash
 
+# === Config options  ===
+NUM_ADS=6                                       # Number of ads to play after episode is over
+
+export ENABLE_WEATHERANDTIMEBUMPER=true         # Enable weather bumper that also shows time, only if internet is available
+export ONLINE_CHECKER="amionline.net"
+
+PLAYED_EPS_FILE="/tmp/played_episodes"       # Keep track of previously-played episodes
+PLAYED_ADS_FILE="/tmp/played_ads"               # Keep track of previously-played ads
+EPISODE_DIR="$HOME/Videos/tv"                   # Episodes (can be in subfolders)
+ADS_DIR="$HOME/Videos/ads"                      # Ads folder
+STATION_ID_DIR="$HOME/Videos/stationids"        # Folder containing station ID clips
+
+# === touch played_* files ===
+if [ ! -f "$PLAYED_ADS_FILE" ]; then
+    touch "$PLAYED_ADS_FILE"
+    echo "File created: $FILE"
+fi
+
+if [ ! -f "$PLAYED_EPS_FILE" ]; then
+    touch "$PLAYED_EPS_FILE"
+    echo "File created: $FILE"
+fi
+
+
 # === This will wait until the desktop environment                                               ===
 # === Comes online, otherwise there is a chance of a dialog box                                  ===
 # === coming onscreen saying the desktop env isnt active.                                        ===
@@ -17,35 +41,6 @@ sleep 0.25
 
 # === Set starting volume ===
 amixer sset Master 80%
-
-# === Config options  ===
-NUM_ADS=6                                       # Number of ads to play after episode is over
-
-export ENABLE_WEATHERANDTIMEBUMPER=true         # Enable weather bumper that also shows time, only if internet is available
-export ONLINE_CHECKER="amionline.net"
-
-PLAYED_EPS_FILE="/tmp/played_episodes"       # Keep track of previously-played episodes
-PLAYED_ADS_FILE="/tmp/played_ads"               # Keep track of previously-played ads
-EPISODE_DIR="$HOME/Videos/tv"                   # Episodes (can be in subfolders)
-ADS_DIR="$HOME/Videos/ads"                      # Ads folder
-STATION_ID_DIR="$HOME/Videos/stationids"        # Folder containing station ID clips
-
-# TODO
-# === Holiday specials directory config ===
-#ADS_DIR_HALOWEEN=
-#ADS_DIR_CHRISTMAS=
-
-# === touch played_* files ===
-if [ ! -f "$PLAYED_ADS_FILE" ]; then
-    touch "$PLAYED_ADS_FILE"
-    echo "File created: $FILE"
-fi
-
-if [ ! -f "$PLAYED_EPS_FILE" ]; then
-    touch "$PLAYED_EPS_FILE"
-    echo "File created: $FILE"
-fi
-
 
 # === Pick a Random Station ID Upon script activation ===
 station_ids=($(find "$STATION_ID_DIR" -type f \( -iname "*.mp4" -o -iname "*.mkv" -o -iname "*.avi" -o -iname "*.webm" \)))
