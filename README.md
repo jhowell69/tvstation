@@ -1,4 +1,4 @@
-# tvstation
+```# tvstation
 TV station with ad support, random episode playback, and support for playing ads between chapters inside of an episode.
 This setup works on Raspberry Pi 5 running bookworm.
        _,met$$$$$gg.          tvbox@tvbox
@@ -22,3 +22,4 @@ This setup works on Raspberry Pi 5 running bookworm.
         
 You will also need to compile xwinwrap for the overlay. all prerequisites are in ./install.sh
 https://github.com/mmhobi7/xwinwrap
+```
