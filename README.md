@@ -2,6 +2,10 @@
 TV station with ad support, random episode playback,
 and support for playing ads between chapters inside of an episode.
 
+For the install file, you'll need to run:
+chmod +x install.sh
+
+
 This setup works on Raspberry Pi 5 running bookworm.
        _,met$$$$$gg.          tvbox@tvbox
     ,g$$$$$$$$$$$$$$$P.       -----------
