@@ -1,4 +1,9 @@
-//compiled with gcc overlay.c -o overlay -lX11 -lXrender -lXcomposite -lcairo
+// === PLEASE READ ===
+//compiled with 
+//gcc overlay.c -o overlay -lX11 -lXrender -lXcomposite -lcairo
+//you need to edit line 69 to specify your own channel callsign path
+//I may edit this later to be more usable so you can use the program binary file instead of having to compile it yourself
+
 
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -25,7 +30,8 @@ int main() {
     int screen_width = DisplayWidth(dpy, screen);
     int screen_height = DisplayHeight(dpy, screen);
 
-    // Set position of channel logo. By default, this puts it at the bottom right,
+    // Set position of channel logo. By default, this puts it at the bottom right
+    //this far offset is useful if you're using a crt tv
     // Offset to be compatible with vintage 4:3 CRT televisions
     int x = screen_width - win_width - 110;
     int y = screen_height - win_height - 30;
@@ -58,7 +64,7 @@ int main() {
     cairo_t *cr = cairo_create(surface);
 
     // Load PNG image
-    // I dont know how to specify $HOME from the bash env into C so you will either need
+    // I'm not sure if $HOME from the bash env works here in C so you will either need
     // to create the path or recompile this program with your own file path
     const char *image_path = "/home/tvbox/Pictures/channelcallsign.png";
     cairo_surface_t *image = cairo_image_surface_create_from_png(image_path);
@@ -69,14 +75,14 @@ int main() {
 
     // Draw image
     double img_width = cairo_image_surface_get_width(image);
-double img_height = cairo_image_surface_get_height(image);
+    double img_height = cairo_image_surface_get_height(image);
 
-double scale_x = (double)win_width / img_width;
-double scale_y = (double)win_height / img_height;
+    double scale_x = (double)win_width / img_width;
+    double scale_y = (double)win_height / img_height;
 
-cairo_scale(cr, scale_x, scale_y);
-cairo_set_source_surface(cr, image, 0, 0);
-cairo_paint(cr);
+    cairo_scale(cr, scale_x, scale_y);
+    cairo_set_source_surface(cr, image, 0, 0);
+    cairo_paint(cr);
 
 
     // Flush and clean up
