@@ -1,5 +1,7 @@
 ```# tvstation
-TV station with ad support, random episode playback, and support for playing ads between chapters inside of an episode.
+TV station with ad support, random episode playback,
+and support for playing ads between chapters inside of an episode.
+
 This setup works on Raspberry Pi 5 running bookworm.
        _,met$$$$$gg.          tvbox@tvbox
     ,g$$$$$$$$$$$$$$$P.       -----------
