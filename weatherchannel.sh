@@ -1,6 +1,7 @@
 #! /bin/bash
 
 ONLINE_OR_NOT_FILE="/tmp/amionline.bool"
+
 if [ ! -f "$ONLINE_OR_NOT_FILE" ]; then
   touch $ONLINE_OR_NOT_FILE
 fi
